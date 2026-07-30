@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.stockpredict.live-monitor</string>
+
+    <!--
+    Weekdays 9:15 AM IST: starts live_monitor with WhatsApp alerts.
+    The monitor exits gracefully at market close (its own logic exits
+    when market hours end if run with --auto-exit). For now, we stop
+    it via a separate launchd job at 3:35 PM using the companion plist.
+    -->
+    <key>StartCalendarInterval</key>
+    <array>
+        <dict><key>Weekday</key><integer>1</integer><key>Hour</key><integer>9</integer><key>Minute</key><integer>15</integer></dict>
+        <dict><key>Weekday</key><integer>2</integer><key>Hour</key><integer>9</integer><key>Minute</key><integer>15</integer></dict>
+        <dict><key>Weekday</key><integer>3</integer><key>Hour</key><integer>9</integer><key>Minute</key><integer>15</integer></dict>
+        <dict><key>Weekday</key><integer>4</integer><key>Hour</key><integer>9</integer><key>Minute</key><integer>15</integer></dict>
+        <dict><key>Weekday</key><integer>5</integer><key>Hour</key><integer>9</integer><key>Minute</key><integer>15</integer></dict>
+    </array>
+
+    <!-- Don't restart if it exits — market closes, stays closed until tomorrow. -->
+    <key>KeepAlive</key>
+    <false/>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/apple/Documents/personal/Projects/Ideas/stock-prediction-system</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/apple/Documents/personal/Projects/Ideas/stock-prediction-system/.venv/bin/python</string>
+        <string>/Users/apple/Documents/personal/Projects/Ideas/stock-prediction-system/scripts/live_monitor.py</string>
+        <string>--whatsapp</string>
+        <string>--snapshot-interval-min</string>
+        <string>20</string>
+        <string>--refresh-sec</string>
+        <string>30</string>
+    </array>
+
+    <key>StandardOutPath</key>
+    <string>/Users/apple/Documents/personal/Projects/Ideas/stock-prediction-system/logs/automation/live-monitor.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/apple/Documents/personal/Projects/Ideas/stock-prediction-system/logs/automation/live-monitor.err.log</string>
+</dict>
+</plist>

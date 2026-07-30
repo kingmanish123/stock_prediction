@@ -1,0 +1,16 @@
+{
+  "name": "stock-prediction-whatsapp-bot",
+  "version": "1.0.0",
+  "description": "Local WhatsApp bot (Baileys) for the stock prediction system. Runs as a small HTTP daemon that the Python pipeline POSTs messages to.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "@whiskeysockets/baileys": "^6.7.0",
+    "express": "^4.19.2",
+    "pino": "^9.0.0",
+    "qrcode-terminal": "^0.12.0"
+  }
+}

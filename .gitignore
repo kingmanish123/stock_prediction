@@ -1,0 +1,76 @@
+# ─── Secrets (NEVER commit) ──────────────────────────
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+# Credential JSON (service accounts, OAuth client secrets, tokens)
+*credentials*.json
+*service-account*.json
+client_secret*.json
+gcp-*.json
+token.json
+# WhatsApp / Baileys live session (auth_info/ holds creds.json — a real session secret)
+auth_info/
+whatsapp-bot/auth_info/
+
+# ─── Python ──────────────────────────────────────────
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+
+# ─── Node (whatsapp-bot) ─────────────────────────────
+node_modules/
+whatsapp-bot/node_modules/
+
+# ─── Testing ─────────────────────────────────────────
+.pytest_cache/
+.coverage
+htmlcov/
+
+# ─── Linting / typing ────────────────────────────────
+.ruff_cache/
+.mypy_cache/
+
+# ─── Jupyter ─────────────────────────────────────────
+.ipynb_checkpoints/
+*.ipynb_meta
+
+# ─── Generated runtime output (keep the code, drop the data) ──
+data/
+reports/
+predictions/
+logs/
+models/
+*.log
+*.parquet
+*.pkl
+
+# ─── Databases ───────────────────────────────────────
+*.db
+*.sqlite
+*.sqlite*
+*.sqlite-journal
+
+# ─── IDE / OS ────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# ─── uv (drop lockfile from portfolio repo; remove this line to commit it) ──
+uv.lock
+storage/
+*.session

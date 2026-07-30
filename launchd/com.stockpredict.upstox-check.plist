@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.stockpredict.upstox-check</string>
+
+    <!-- Daily 6:50 AM IST — reminds to refresh Upstox token before market -->
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Hour</key><integer>6</integer>
+        <key>Minute</key><integer>50</integer>
+    </dict>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/apple/Documents/personal/Projects/Ideas/stock-prediction-system</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/apple/Documents/personal/Projects/Ideas/stock-prediction-system/.venv/bin/python</string>
+        <string>/Users/apple/Documents/personal/Projects/Ideas/stock-prediction-system/scripts/automation/upstox_token_check.py</string>
+    </array>
+
+    <key>StandardOutPath</key>
+    <string>/Users/apple/Documents/personal/Projects/Ideas/stock-prediction-system/logs/automation/upstox-check.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/apple/Documents/personal/Projects/Ideas/stock-prediction-system/logs/automation/upstox-check.err.log</string>
+</dict>
+</plist>

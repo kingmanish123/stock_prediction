@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.stockpredict.whatsapp-bot</string>
+
+    <!-- Persistent daemon: WhatsApp bot runs continuously. KeepAlive restarts it if it crashes. -->
+    <key>KeepAlive</key>
+    <true/>
+    <key>RunAtLoad</key>
+    <true/>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/apple/Documents/personal/Projects/Ideas/stock-prediction-system/whatsapp-bot</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/local/bin/node</string>
+        <string>/Users/apple/Documents/personal/Projects/Ideas/stock-prediction-system/whatsapp-bot/server.js</string>
+    </array>
+
+    <key>StandardOutPath</key>
+    <string>/Users/apple/Documents/personal/Projects/Ideas/stock-prediction-system/logs/automation/whatsapp-bot.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/apple/Documents/personal/Projects/Ideas/stock-prediction-system/logs/automation/whatsapp-bot.err.log</string>
+
+    <!-- Pass PATH so node finds npm-installed binaries if needed -->
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/usr/local/bin:/usr/bin:/bin:/opt/homebrew/bin</string>
+    </dict>
+</dict>
+</plist>

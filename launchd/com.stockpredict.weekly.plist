@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.stockpredict.weekly</string>
+
+    <!-- Sunday (Weekday=0) 9:00 PM IST: full weekly backtest + WhatsApp report. -->
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Weekday</key><integer>0</integer>
+        <key>Hour</key><integer>21</integer>
+        <key>Minute</key><integer>0</integer>
+    </dict>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/apple/Documents/personal/Projects/Ideas/stock-prediction-system</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/apple/Documents/personal/Projects/Ideas/stock-prediction-system/.venv/bin/python</string>
+        <string>/Users/apple/Documents/personal/Projects/Ideas/stock-prediction-system/scripts/automation/weekly_run.py</string>
+    </array>
+
+    <key>StandardOutPath</key>
+    <string>/Users/apple/Documents/personal/Projects/Ideas/stock-prediction-system/logs/automation/weekly.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/apple/Documents/personal/Projects/Ideas/stock-prediction-system/logs/automation/weekly.err.log</string>
+</dict>
+</plist>

@@ -1,0 +1,93 @@
+[project]
+name = "stock-prediction-system"
+version = "0.1.0"
+description = "Pre-market stock prediction system for Nifty 50 (personal use, local-only)"
+readme = "README.md"
+requires-python = ">=3.11"
+
+dependencies = [
+    # Data
+    "pandas>=2.2",
+    "numpy>=1.26,<2.3",
+    "pyarrow>=18.0",
+
+    # Market data
+    "yfinance>=0.2.50",
+
+    # HTTP + scraping
+    "requests>=2.32",
+    "httpx>=0.28",
+    "beautifulsoup4>=4.12",
+    "feedparser>=6.0",
+    "lxml>=5.3",
+
+    # LLMs
+    "anthropic>=0.42",
+    "google-genai>=1.0",
+
+    # ML
+    "scikit-learn>=1.6",
+    "xgboost>=2.1",
+    "lightgbm>=4.5",
+    "ta>=0.11",
+
+    # Output
+    "rich>=13.9",
+    "tabulate>=0.9",
+
+    # Database
+    "sqlalchemy>=2.0",
+    "pymysql>=1.1",
+    "cryptography>=44.0",
+
+    # External data APIs
+    "finnhub-python>=2.4",
+    "fredapi>=0.5",
+
+    # Config + utilities
+    "pyyaml>=6.0",
+    "python-dotenv>=1.0",
+    "pydantic>=2.10",
+    "tenacity>=9.0",
+    "click>=8.1",
+
+    # Logging
+    "structlog>=24.4",
+]
+
+[project.optional-dependencies]
+# Heavy NLP deps — install later when building Stage 2
+nlp = [
+    "sentence-transformers>=3.3",
+    "transformers>=4.47",
+    "torch>=2.5",
+]
+
+# Notebooks + visualization — install when experimenting
+notebooks = [
+    "jupyterlab>=4.3",
+    "matplotlib>=3.10",
+    "seaborn>=0.13",
+    "plotly>=5.24",
+]
+
+dev = [
+    "pytest>=8.3",
+    "pytest-cov>=6.0",
+    "ruff>=0.8",
+    "mypy>=1.13",
+]
+
+[tool.uv]
+package = false
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W", "UP", "B"]
+ignore = ["E501"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

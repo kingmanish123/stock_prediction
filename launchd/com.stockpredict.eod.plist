@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.stockpredict.eod</string>
+
+    <!-- Weekdays 4:00 PM IST: market closed 30 min earlier, run validation + summary. -->
+    <key>StartCalendarInterval</key>
+    <array>
+        <dict><key>Weekday</key><integer>1</integer><key>Hour</key><integer>16</integer><key>Minute</key><integer>0</integer></dict>
+        <dict><key>Weekday</key><integer>2</integer><key>Hour</key><integer>16</integer><key>Minute</key><integer>0</integer></dict>
+        <dict><key>Weekday</key><integer>3</integer><key>Hour</key><integer>16</integer><key>Minute</key><integer>0</integer></dict>
+        <dict><key>Weekday</key><integer>4</integer><key>Hour</key><integer>16</integer><key>Minute</key><integer>0</integer></dict>
+        <dict><key>Weekday</key><integer>5</integer><key>Hour</key><integer>16</integer><key>Minute</key><integer>0</integer></dict>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/apple/Documents/personal/Projects/Ideas/stock-prediction-system</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/apple/Documents/personal/Projects/Ideas/stock-prediction-system/.venv/bin/python</string>
+        <string>/Users/apple/Documents/personal/Projects/Ideas/stock-prediction-system/scripts/automation/eod_run.py</string>
+    </array>
+
+    <key>StandardOutPath</key>
+    <string>/Users/apple/Documents/personal/Projects/Ideas/stock-prediction-system/logs/automation/eod.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/apple/Documents/personal/Projects/Ideas/stock-prediction-system/logs/automation/eod.err.log</string>
+</dict>
+</plist>
